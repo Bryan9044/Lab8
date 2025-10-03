@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Laptop",
+    "sku": "LAP123",
+    "price": 1200.99,
+    "stock": 10,
+    "category": "Electronics",
+    "description": "A high-performance laptop suitable for all your computing needs."
+  },
+  {
+    "id": 2,
+    "name": "Pikachu",
+    "sku": "SK3123",
+    "price": 50,
+    "stock": 10,
+    "category": "Categoria nueva",
+    "description": "Nueva descripción"
+  },
+  {
+    "id": 5,
+    "name": "Mouse Gamer",
+    "sku": "MG123",
+    "price": 49.99,
+    "stock": 20,
+    "category": "Electrónica",
+    "description": "Mouse con iluminación RGB y alta precisión"
+  }
+]
