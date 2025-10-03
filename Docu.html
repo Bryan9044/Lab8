@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Converted from Markdown</title>
+  <style>
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 20px;
+      color: #333;
+    }
+    h1, h2, h3 { color: #333; margin-top: 1.5em; margin-bottom: 0.5em; }
+    h1 { font-size: 2em; }
+    h2 { font-size: 1.5em; }
+    h3 { font-size: 1.2em; }
+    code {
+      background: #f4f4f4;
+      padding: 2px 4px;
+      border-radius: 3px;
+      font-family: 'Courier New', monospace;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 15px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      line-height: 1.4;
+    }
+    blockquote {
+      border-left: 4px solid #ddd;
+      margin: 1em 0;
+      padding-left: 20px;
+      color: #666;
+      font-style: italic;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 1em 0;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 8px 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f5f5f5;
+      font-weight: bold;
+    }
+    ul, ol {
+      margin: 1em 0;
+      padding-left: 2em;
+    }
+    li {
+      margin: 0.5em 0;
+    }
+  </style>
+</head>
+<body>
+<h1>Lab 8 - Documentación de Endpoints</h1>
+<h2>1. Endpoint para loguearse</h2>
+<p><strong>URL:</strong> POST <a href="http://localhost:3000/auth/login">http://localhost:3000/auth/login</a><br><strong>Headers:</strong> Authorization: ApiKey ggpapa, Content-Type: application/json<br><strong>Body (JSON):</strong> {&quot;username&quot;: &quot;Bryan&quot;, &quot;password&quot;: &quot;Secreto&quot;}<br><strong>Descripción:</strong> Necesario enviar username y password válidos. Devuelve un JWT si es correcto (200 OK). Error 422 si falta usuario o contraseña.</p>
+<h2>2. Endpoint para lista de productos</h2>
+<p><strong>URL:</strong> GET <a href="http://localhost:3000/products?page=1&limit=2">http://localhost:3000/products?page=1&amp;limit=2</a><br><strong>Headers:</strong> Authorization: ApiKey ggpapa, Accept: application/json o application/xml<br><strong>Query Params:</strong> page=1, limit=2<br><strong>Descripción:</strong> Devuelve productos paginados (200 OK). Error 401 si falta autorización. Error 422 si page o limit no son números enteros positivos.</p>
+<h2>3. Endpoint para obtener el detalle de un producto</h2>
+<p><strong>URL:</strong> GET <a href="http://localhost:3000/products/:id">http://localhost:3000/products/:id</a><br><strong>Headers:</strong> Authorization: ApiKey ggpapa, Accept: application/json o application/xml<br><strong>Descripción:</strong> Devuelve 200 OK si el producto existe. Error 401 si falta autorización. Error 404 si no encuentra el ID. Error 400 si el ID no es un número válido (ej. &quot;holakhaceejejje&quot;).</p>
+<h2>4. Endpoint para crear un producto</h2>
+<p><strong>URL:</strong> POST <a href="http://localhost:3000/products">http://localhost:3000/products</a><br><strong>Headers:</strong> Authorization: Bearer <token>, Content-Type: application/json<br><strong>Body (JSON):</strong> {&quot;name&quot;:&quot;Mouse Gamer&quot;,&quot;sku&quot;:&quot;MG123&quot;,&quot;price&quot;:49.99,&quot;stock&quot;:20,&quot;category&quot;:&quot;Electrónica&quot;,&quot;description&quot;:&quot;Mouse con iluminación RGB y alta precisión&quot;}<br><strong>Descripción:</strong> Devuelve 201 Created si se creó correctamente. Error 400 si falta algún campo. Error 401 si falta autorización. Error 403 si el token no es de administrador o editor.</p>
+<h2>5. Endpoint para actualizar un producto existente</h2>
+<p><strong>URL:</strong> PUT <a href="http://localhost:3000/products/:id">http://localhost:3000/products/:id</a><br><strong>Headers:</strong> Authorization: Bearer <token>, Content-Type: application/json<br><strong>Body (JSON):</strong> {&quot;name&quot;:&quot;Pikachu&quot;,&quot;sku&quot;:&quot;SK3123&quot;,&quot;price&quot;:50,&quot;stock&quot;:10,&quot;category&quot;:&quot;Categoria nueva&quot;,&quot;description&quot;:&quot;Nueva descripción&quot;}<br><strong>Descripción:</strong> Devuelve 200 OK si la actualización es correcta. Error 404 si no encuentra el ID. Error 401 si falta autorización o el token expiró. Error 403 si el token no es de administrador o editor. Error 422 si el ID no es válido.</p>
+<h2>6. Endpoint para eliminar productos</h2>
+<p><strong>URL:</strong> DELETE <a href="http://localhost:3000/products/:id">http://localhost:3000/products/:id</a><br><strong>Headers:</strong> Authorization: Bearer <token>, Content-Type: application/json<br><strong>Descripción:</strong> Devuelve 200 OK si el producto se elimina correctamente. Error 401 si falta autorización o el token expiró. Error 403 si el token no es de administrador. Error 404 si no encuentra el ID.</p>
+
+</body>
+</html>
